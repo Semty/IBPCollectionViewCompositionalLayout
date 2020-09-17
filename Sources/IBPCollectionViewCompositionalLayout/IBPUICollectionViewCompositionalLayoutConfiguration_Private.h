@@ -7,7 +7,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)defaultConfiguration;
 - (instancetype)initWithScrollDirection:(UICollectionViewScrollDirection)scrollDirection
                     interSectionSpacing:(CGFloat)interSectionSpacing
-             boundarySupplementaryItems:(NSArray<IBPNSCollectionLayoutBoundarySupplementaryItem *> *)boundarySupplementaryItems;
+             boundarySupplementaryItems:(NSArray<IBPNSCollectionLayoutBoundarySupplementaryItem *> *)boundarySupplementaryItems
+                 contentInsetsReference:(UIContentInsetsReference)contentInsetsReference API_AVAILABLE(ios(14.0));
 
 @end
 

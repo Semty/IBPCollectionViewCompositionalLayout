@@ -26,6 +26,9 @@ typedef void (^IBPNSCollectionLayoutSectionVisibleItemsInvalidationHandler)(NSAr
 // default is .none
 @property (nonatomic) IBPUICollectionLayoutSectionOrthogonalScrollingBehavior orthogonalScrollingBehavior;
 
+// default is UIContentInsetsReferenceAutomatic i.e. following the layout configuration's contentInsetsReference
+@property(nonatomic) UIContentInsetsReference contentInsetsReference API_AVAILABLE(ios(14.0), tvos(14.0), watchos(7.0));
+
 // Supplementaries associated with the boundary edges of the section
 @property (nonatomic, copy) NSArray<IBPNSCollectionLayoutBoundarySupplementaryItem *> *boundarySupplementaryItems;
 

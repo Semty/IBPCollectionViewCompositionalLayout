@@ -17,6 +17,9 @@
     if (self) {
         self.group = group;
         self.orthogonalScrollingBehavior = IBPUICollectionLayoutSectionOrthogonalScrollingBehaviorNone;
+        if (@available(iOS 14.0, *)) {
+            self.contentInsetsReference = UIContentInsetsReferenceAutomatic;
+        }
         self.supplementariesFollowContentInsets = YES;
     }
     return self;
@@ -27,6 +30,9 @@
     section.contentInsets = self.contentInsets;
     section.interGroupSpacing = self.interGroupSpacing;
     section.orthogonalScrollingBehavior = self.orthogonalScrollingBehavior;
+    if (@available(iOS 14.0, *)) {
+        section.contentInsetsReference = self.contentInsetsReference;
+    }
     section.boundarySupplementaryItems = self.boundarySupplementaryItems;
     section.supplementariesFollowContentInsets = self.supplementariesFollowContentInsets;
     section.visibleItemsInvalidationHandler = self.visibleItemsInvalidationHandler;
