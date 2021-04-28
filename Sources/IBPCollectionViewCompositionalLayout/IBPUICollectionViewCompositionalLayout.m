@@ -136,7 +136,7 @@
         return;
     }
 
-    if (!self.collectionViewDelegate && collectionView.delegate != self) {
+    if (collectionView.collectionViewLayout == self && !self.collectionViewDelegate && collectionView.delegate != self) {
         self.collectionViewDelegate = collectionView.delegate;
         collectionView.delegate = self;
     }
@@ -145,7 +145,7 @@
 
     UIEdgeInsets collectionContentInset = UIEdgeInsetsZero;
     if (@available(iOS 11.0, *)) {
-        if ([collectionView respondsToSelector:@selector(safeAreaInsets)]) {
+        if ([collectionView respondsToSelector:@selector(safeAreaInsets)] && collectionView.contentInsetAdjustmentBehavior != UIScrollViewContentInsetAdjustmentNever) {
             collectionContentInset = collectionView.safeAreaInsets;
         }
     }
@@ -940,7 +940,7 @@
 }
 
 - (BOOL)respondsToSelector:(SEL)aSelector {
-    return [self.collectionViewDelegate respondsToSelector:aSelector] || [super respondsToSelector:aSelector];
+    return [self.collectionViewDelegate respondsToSelector:aSelector] || [UICollectionViewLayout instancesRespondToSelector:aSelector];
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
